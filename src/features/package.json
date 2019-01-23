@@ -1,0 +1,8 @@
+{
+  "name": "features",
+  "version": "1.0.0",
+  "description": "the main feature of this project",
+  "main": "index.js",
+  "author": "khangtnguyen",
+  "license": "MIT"
+}

@@ -13,16 +13,17 @@ class Avatar extends React.Component<Props> {
     style: {}
   };
   render() {
+    const { size, source, style } = this.props;
     return (
       <Image
-        source={this.props.source}
+        source={source}
         style={[
           {
-            height: this.props.size,
-            width: this.props.size,
-            borderRadius: this.props.size / 2
+            height: size,
+            width: size,
+            borderRadius: size / 2
           },
-          this.props.style
+          style
         ]}
       />
     );

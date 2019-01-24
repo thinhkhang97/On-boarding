@@ -1,0 +1,8 @@
+{
+  "name": "sharedComponents",
+  "version": "1.0.0",
+  "description": "all components are used to build bigger components",
+  "main": "index.js",
+  "author": "khangtnguyen",
+  "license": "MIT"
+}

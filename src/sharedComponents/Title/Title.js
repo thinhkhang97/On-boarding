@@ -9,10 +9,19 @@ type Props = {
 
 class Title extends React.Component<Props> {
   static defaultProps = {
-    style: { fontSize: 32, fontWeight: 'bold', color: 'black' }
+    style: {}
   };
   render() {
-    return <Text style={this.props.style}>{this.props.children}</Text>;
+    return (
+      <Text
+        style={[
+          { fontSize: 32, fontWeight: 'bold', color: 'black' },
+          this.props.style
+        ]}
+      >
+        {this.props.children}
+      </Text>
+    );
   }
 }
 

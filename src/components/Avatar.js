@@ -3,19 +3,29 @@ import { Image, StyleSheet } from 'react-native';
 
 type Props = {
   source: string,
-  style?: object
+  style?: object,
+  size?: number
 };
 
 class Avatar extends React.Component<Props> {
-  static defaultObject = {
-    style: {
-      height: 116,
-      width: 116,
-      borderRadius: 116 / 2
-    }
+  static defaultProps = {
+    size: 116,
+    style: {}
   };
   render() {
-    return <Image source={this.props.source} style={this.props.style} />;
+    return (
+      <Image
+        source={this.props.source}
+        style={[
+          {
+            height: this.props.size,
+            width: this.props.size,
+            borderRadius: this.props.size / 2
+          },
+          this.props.style
+        ]}
+      />
+    );
   }
 }
 

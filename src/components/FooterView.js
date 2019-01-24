@@ -21,7 +21,7 @@ class FooterView extends React.Component<Props> {
           <Spread />
           <Spread />
         </SpreadBar>
-        <RoundButton style={{ marginTop: 8 }}>
+        <RoundButton style={{ marginTop: 8, marginBottom: 8 }}>
           <Text>Left arrow</Text>
         </RoundButton>
       </View>

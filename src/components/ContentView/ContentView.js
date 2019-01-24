@@ -15,7 +15,7 @@ class ContentView extends React.Component<Props> {
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.imageContainer}>
-          <ImageContent avatar source={{ uri: URI }} />
+          <ImageContent source={{ uri: URI }} />
           {/* {imageContent} */}
         </View>
         <View style={styles.textContainer}>

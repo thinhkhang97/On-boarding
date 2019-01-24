@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import ContentView from 'components/ContentView/ContentView';
 import FooterView from 'components/FooterView';
+import SlideView from 'sharedComponents/SlideView/SlideView';
+import SlideItem from 'sharedComponents/SlideView/SlideItem';
 type Props = {};
 
 const URI =
@@ -19,7 +21,20 @@ class Onboarding extends React.Component<Props> {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.contentContainer}>
-          <ContentView />
+          <SlideView>
+            <SlideItem>
+              <ContentView />
+            </SlideItem>
+            <SlideItem>
+              <ContentView />
+            </SlideItem>
+            <SlideItem>
+              <ContentView />
+            </SlideItem>
+            <SlideItem>
+              <ContentView />
+            </SlideItem>
+          </SlideView>
         </View>
         <View style={styles.footerContainer}>
           <FooterView />

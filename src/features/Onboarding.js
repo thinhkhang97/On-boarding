@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { View, Text, Dimensions, Image } from 'react-native';
-import SlideView from 'components/SlideView';
-import SlideItem from 'components/SlideItem';
-import Avatar from 'components/Avatar';
-import Title from 'components/Title';
-import Description from 'components/Description';
-import RoundButton from 'components/Button/RoundButton';
-import Spread from 'components/SpreadBar/Spread';
-import SpreadBar from 'components/SpreadBar/SpreadBar';
+import MixTitle from 'components/Title/MixTitle';
+
 type Props = {};
 
 const URI =
@@ -27,22 +21,7 @@ class Onboarding extends React.Component<Props> {
   render() {
     return (
       <View style={{ height: 400 }}>
-        {/* <SlideView>{this.transformDataToComponent()}</SlideView> */}
-        {/* <Avatar source={{ uri: URI }} /> */}
-        {/* <Title>Welcome, Beckham!!!</Title>
-        <Description>
-          Before using Grove, we would like to show you a quick recap of over 3
-          years working for the company.
-        </Description> */}
-        {/* <RoundButton style={{ width: 200 }}>
-          <Text>Hello world</Text>
-        </RoundButton> */}
-        <SpreadBar sizeOfSpread={16}>
-          <Spread size={16} activedColor="red" />
-          <Spread size={16} actived />
-          <Spread size={16} />
-          <Spread size={16} />
-        </SpreadBar>
+        <MixTitle number={3} title={'projects'} />
       </View>
     );
   }

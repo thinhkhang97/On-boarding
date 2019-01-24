@@ -26,7 +26,11 @@ class ImageContent extends React.Component<Props> {
         {avatar ? (
           <AvatarView source={source} />
         ) : (
-          <Image style={{ flex: 1, backgroundColor: 'red' }} source={source} />
+          <Image
+            style={{ flex: 1, backgroundColor: 'black' }}
+            source={source}
+            resizeMode="contain"
+          />
         )}
       </View>
     );

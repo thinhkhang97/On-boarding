@@ -4,30 +4,26 @@ import { View, StyleSheet, Text } from 'react-native';
 import Button from './Button';
 
 type Props = {
-  width?: number,
-  height?: number,
   style?: object
 };
 
 class RoundButton extends React.Component<Props> {
   static defaultProps = {
-    width: 83,
-    height: 44,
     style: {}
   };
   render() {
+    const { onPress } = this.props;
     return (
       <Button
         style={[
-          {
-            width: this.props.width,
-            height: this.props.height,
-            borderRadius: this.props.height / 2
-          },
           styles.container,
-          this.props.style
+          this.props.style,
+          {
+            height: 44,
+            borderRadius: 22
+          }
         ]}
-        onPress={() => this.props.onPress()}
+        onPress={() => onPress && onPress()}
       >
         {this.props.children}
       </Button>
@@ -43,7 +39,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#731154',
     shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 9
+    shadowRadius: 9,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 });
 

@@ -2,7 +2,8 @@ import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 type Props = {
-  style: object
+  style: object,
+  onPress: () => mixed
 };
 
 class Button extends React.Component<Props> {
@@ -10,10 +11,11 @@ class Button extends React.Component<Props> {
     style: {}
   };
   render() {
+    const { onPress } = this.props;
     return (
       <TouchableOpacity
         style={this.props.style}
-        onPress={() => this.props.onPress()}
+        onPress={() => onPress && onPress()}
       >
         {this.props.children}
       </TouchableOpacity>

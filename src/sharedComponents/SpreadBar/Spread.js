@@ -21,7 +21,14 @@ class Spread extends React.Component<Props> {
     style: {}
   };
   render() {
-    const { actived, size, style, activedColor, unactivedColor } = this.props;
+    const {
+      actived,
+      size,
+      style,
+      activedColor,
+      unactivedColor,
+      onPress
+    } = this.props;
     return (
       <TouchableOpacity
         style={[
@@ -33,7 +40,7 @@ class Spread extends React.Component<Props> {
           },
           this.props.style
         ]}
-        onPress={() => this.props.onPress()}
+        onPress={() => onPress && onPress()}
       >
         {this.props.children}
       </TouchableOpacity>

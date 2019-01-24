@@ -24,15 +24,9 @@ class TextContent extends React.Component<Props> {
   render() {
     const { mix, title, description, mixData } = this.props;
     return (
-      <View style={{ flex: 1, justifyContent: 'space-around' }}>
+      <View style={styles.container}>
         {mix ? (
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center'
-            }}
-          >
+          <View style={styles.titleContainer}>
             <MixTitle
               title={mixData.leftTitle}
               subTitle={mixData.leftSubTitle}
@@ -46,13 +40,7 @@ class TextContent extends React.Component<Props> {
           <Title style={{ textAlign: 'center' }}>{title}</Title>
         )}
 
-        <Description
-          style={{
-            textAlign: 'center',
-            paddingLeft: 39,
-            paddingRight: 36
-          }}
-        >
+        <Description style={styles.descriptionContainer}>
           {description}
         </Description>
       </View>
@@ -60,6 +48,18 @@ class TextContent extends React.Component<Props> {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'space-around' },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  descriptionContainer: {
+    textAlign: 'center',
+    paddingLeft: 39,
+    paddingRight: 36
+  }
+});
 
 export default TextContent;

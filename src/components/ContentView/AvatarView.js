@@ -19,7 +19,8 @@ class AvatarView extends React.Component<Props> {
           borderWidth: 54,
           overflow: 'hidden',
           padding: 15,
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          marginBottom: 48
         }}
       >
         <Avatar source={source} style={{ flex: 1, width: '100%' }} />

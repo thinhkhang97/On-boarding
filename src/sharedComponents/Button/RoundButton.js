@@ -20,7 +20,9 @@ class RoundButton extends React.Component<Props> {
           this.props.style,
           {
             height: 44,
-            borderRadius: 22
+            borderRadius: 22,
+            marginTop: 8,
+            marginBottom: 8
           }
         ]}
         onPress={() => onPress && onPress()}

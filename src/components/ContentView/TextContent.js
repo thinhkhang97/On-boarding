@@ -6,8 +6,8 @@ import MixTitle from 'sharedComponents/Title/MixTitle';
 
 type Props = {
   mix?: boolean,
-  title: string,
-  description: string,
+  title?: string,
+  description?: string,
   mixData?: mixed
 };
 
@@ -19,7 +19,9 @@ class TextContent extends React.Component<Props> {
       leftSubTitle: '',
       rightTitle: '',
       rightSubTitle: ''
-    }
+    },
+    title: '',
+    description: ''
   };
   render() {
     const { mix, title, description, mixData } = this.props;

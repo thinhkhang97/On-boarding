@@ -17,20 +17,11 @@ class ImageContent extends React.Component<Props> {
   render() {
     const { source, avatar, style } = this.props;
     return (
-      <View
-        style={[
-          !avatar && { width: '100%', height: '100%', backgroundColor: 'blue' },
-          style
-        ]}
-      >
+      <View style={[!avatar && { width: '100%', height: '100%' }, style]}>
         {avatar ? (
           <AvatarView source={source} />
         ) : (
-          <Image
-            style={{ flex: 1, backgroundColor: 'black' }}
-            source={source}
-            resizeMode="contain"
-          />
+          <Image style={{ flex: 1 }} source={source} resizeMode="cover" />
         )}
       </View>
     );

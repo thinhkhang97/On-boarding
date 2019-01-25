@@ -6,7 +6,8 @@ type Props = {
   size?: number,
   style?: object,
   activedColor: string,
-  unactivedColor: string
+  unactivedColor: string,
+  id: string
 };
 
 const ACTIVE_COLOR = '#314057';
@@ -27,7 +28,8 @@ class Spread extends React.Component<Props> {
       style,
       activedColor,
       unactivedColor,
-      onPress
+      onPress,
+      id
     } = this.props;
     return (
       <TouchableOpacity
@@ -36,11 +38,13 @@ class Spread extends React.Component<Props> {
             backgroundColor: actived ? activedColor : unactivedColor,
             height: size,
             width: size,
-            borderRadius: size / 2
+            borderRadius: size / 2,
+            marginTop: 8,
+            marginBottom: 8
           },
           this.props.style
         ]}
-        onPress={() => onPress && onPress()}
+        onPress={() => onPress && onPress(id)}
       >
         {this.props.children}
       </TouchableOpacity>

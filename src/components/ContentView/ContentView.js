@@ -5,31 +5,50 @@ import Avatar from 'sharedComponents/Avatar';
 import TextContent from './TextContent';
 
 type Props = {
-  imageContainer: object
+  avatar?: boolean,
+  imageSource?: object,
+  mixTitle?: boolean,
+  mixTitleData?: object,
+  description?: string,
+  title?: string
 };
 const URI =
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2XnXChz496P_XvBFy4e7xp59-y7seeneFBFIYDFnVUQz8U9Fi';
 class ContentView extends React.Component<Props> {
+  static defaultProps = {
+    avatar: false,
+    mixTitle: false,
+    description: false,
+    mixTitleData: {
+      leftTitle: 3,
+      leftSubTitle: 'Projects',
+      rightTitle: 90,
+      rightSubTitle: 'Connections'
+    },
+    title: '',
+    imageSource: { uri: '' }
+  };
   render() {
-    const { imageContent, textContent } = this.props;
+    const {
+      avatar,
+      mixTitle,
+      description,
+      imageSource,
+      mixTitleData,
+      title
+    } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.imageContainer}>
-          <ImageContent source={{ uri: URI }} />
-          {/* {imageContent} */}
+          <ImageContent avatar={avatar} source={imageSource} />
         </View>
         <View style={styles.textContainer}>
           <TextContent
-            mix
-            mixData={{
-              leftTitle: 3,
-              leftSubTitle: 'Projects',
-              rightTitle: 90,
-              rightSubTitle: 'Connections'
-            }}
-            description="Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque sem."
+            mix={mixTitle}
+            mixData={mixTitleData}
+            description={description}
+            title={title}
           />
-          {/* {textContent} */}
         </View>
       </View>
     );
@@ -41,8 +60,7 @@ const styles = StyleSheet.create({
     height: '75%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingBottom: 50
+    justifyContent: 'flex-end'
   },
   textContainer: {
     flex: 1

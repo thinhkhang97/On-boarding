@@ -3,10 +3,14 @@ import { View, StyleSheet, Text } from 'react-native';
 import SpreadBar from 'sharedComponents/SpreadBar/SpreadBar';
 import Spread from 'sharedComponents/SpreadBar/Spread';
 import RoundButton from 'sharedComponents/Button/RoundButton';
-type Props = {};
+
+type Props = {
+  listSpread: Array
+};
 
 class FooterView extends React.Component<Props> {
   render() {
+    const { listSpread } = this.props;
     return (
       <View
         style={{
@@ -15,12 +19,7 @@ class FooterView extends React.Component<Props> {
           alignItems: 'center'
         }}
       >
-        <SpreadBar>
-          <Spread actived />
-          <Spread />
-          <Spread />
-          <Spread />
-        </SpreadBar>
+        <SpreadBar>{listSpread}</SpreadBar>
         <RoundButton style={{ marginTop: 8, marginBottom: 8 }}>
           <Text>Left arrow</Text>
         </RoundButton>

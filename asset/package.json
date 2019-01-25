@@ -1,0 +1,8 @@
+{
+  "name": "asset",
+  "version": "1.0.0",
+  "description": "Place to storage image, constant value...",
+  "main": "index.js",
+  "author": "khangtnguyen",
+  "license": "MIT"
+}

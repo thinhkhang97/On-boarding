@@ -5,70 +5,97 @@ import {
   Dimensions,
   Image,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
+  Alert
 } from 'react-native';
 import ContentView from 'components/ContentView/ContentView';
 import FooterView from 'components/FooterView';
 import SlideView from 'sharedComponents/SlideView/SlideView';
 import SlideItem from 'sharedComponents/SlideView/SlideItem';
 import ImageContent from '../components/ContentView/ImageContent';
-type Props = {};
+import TextContent from 'components/ContentView/TextContent';
+import { WORDS, IMAGES } from './Definations';
 
-const URI =
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2XnXChz496P_XvBFy4e7xp59-y7seeneFBFIYDFnVUQz8U9Fi';
-const DATA_SAMPLE = {
-  username: 'Beckham',
-  userDescription:
-    'Before using Grove, we would like to show you a quick recap of over 3 years working for the company.',
-  workTime: 8320,
-  workTimeDescription:
-    'Approx. working hours at VISA Global. Thats ten times Elon Musk believes that his ship will be able to fly to Mars',
-  numberProjects: 3,
-  numberConnections: 90,
-  socialDescription:
-    'Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque sem.',
-  numberPromotions: 2,
-  promotionDescription:
-    'You’ve  been promoted 3 times. Keep climbing, aim for the summit'
+type Props = {
+  userData: object
 };
 
 class Onboarding extends React.Component<Props> {
   renderSlideView() {
+    const { userData } = this.props;
     return (
-      <SlideView>
+      <SlideView
+        onPressEndButton={() => {
+          Alert.alert('This is end of slide view');
+        }}
+      >
         <SlideItem>
           <ContentView
-            avatar
-            title={`Welcome,${DATA_SAMPLE.username}`}
-            description={DATA_SAMPLE.userDescription}
-            imageSource={{ uri: URI }}
+            imageContent={
+              <ImageContent avatar source={{ uri: userData.avatarURL }} />
+            }
+            textContent={
+              <TextContent
+                description={`${userData.userDescription}`}
+                title={`${WORDS.WELCOME}, ${userData.userName}`}
+              />
+            }
           />
         </SlideItem>
         <SlideItem>
           <ContentView
-            title={`${DATA_SAMPLE.workTime} Hrs`}
-            description={DATA_SAMPLE.workTimeDescription}
-            imageSource={require('asset/images/view2.png')}
+            imageContent={<ImageContent source={IMAGES.VIEW2} />}
+            textContent={
+              <TextContent
+                description={`${userData.workTimeDescription}`}
+                title={`${userData.workTime} ${
+                  userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR
+                }`}
+              />
+            }
           />
         </SlideItem>
         <SlideItem>
           <ContentView
-            mixTitle
-            mixTitleData={{
-              leftTitle: DATA_SAMPLE.numberProjects,
-              leftSubTitle: 'Projects',
-              rightTitle: DATA_SAMPLE.numberConnections,
-              rightSubTitle: 'Connections'
-            }}
-            description={DATA_SAMPLE.socialDescription}
-            imageSource={require('asset/images/view3.png')}
+            imageContent={<ImageContent source={IMAGES.VIEW3} />}
+            textContent={
+              <TextContent
+                mix
+                mixData={{
+                  leftTitle: userData.numberProjects,
+                  leftSubTitle:
+                    userData.numberProjects > 1
+                      ? WORDS.PROJECTS
+                      : WORDS.PROJECT,
+                  rightTitle: userData.numberConnections,
+                  rightSubTitle:
+                    userData.numberConnections > 1
+                      ? WORDS.CONNECTIONS
+                      : WORDS.CONNECTION
+                }}
+                description={`${userData.socialDescription}`}
+                title={`${userData.workTime} ${
+                  userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR
+                }`}
+              />
+            }
           />
         </SlideItem>
         <SlideItem>
           <ContentView
-            title={`${DATA_SAMPLE.numberPromotions} promotions`}
-            description={DATA_SAMPLE.promotionDescription}
-            imageSource={require('asset/images/view4.png')}
+            imageContent={<ImageContent source={IMAGES.VIEW4} />}
+            textContent={
+              <TextContent
+                description={`${userData.promotionDescription}`}
+                title={`${
+                  userData.numberPromotions > 1 ? WORDS.MULTIPLE : WORDS.ONE
+                } ${
+                  userData.numberConnections > 1
+                    ? WORDS.PROMOTIONS
+                    : WORDS.PROMOTION
+                }`}
+              />
+            }
           />
         </SlideItem>
       </SlideView>
@@ -86,7 +113,7 @@ class Onboarding extends React.Component<Props> {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    height: '100%'
+    flex: 1
   }
 });
 

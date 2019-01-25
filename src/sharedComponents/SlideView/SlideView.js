@@ -5,9 +5,14 @@ import Spread from '../SpreadBar/Spread';
 import RoundButton from '../Button/RoundButton';
 
 type Props = {
-  onPressEndedButton: () => mixed
+  onPressEndButton: () => mixed,
+  children: Array // Children should be SlideItem components
 };
-type State = {};
+
+type State = {
+  pageId: number,
+  buttonText: string
+};
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -16,6 +21,43 @@ class SlideView extends React.Component<Props, State> {
     pageId: 0,
     buttonText: 'Next'
   };
+
+  render() {
+    const { onPressEndButton, children, style } = this.props;
+    const { container, footerContainer, textInButton } = styles;
+    const { pageId, buttonText } = this.state;
+    return (
+      <View style={container}>
+        <ScrollView
+          ref={scroll => {
+            this.scroll = scroll;
+          }}
+          horizontal={true}
+          pagingEnabled={true}
+          style={style}
+          showsHorizontalScrollIndicator={false}
+          onScroll={e => this.handleOnScroll(e)}
+        >
+          {children}
+        </ScrollView>
+
+        <View style={footerContainer}>
+          <SpreadBar>{this.renderSpread()}</SpreadBar>
+          <RoundButton
+            onPress={() => {
+              pageId < children.length - 1
+                ? this.handleOnpressButton()
+                : onPressEndButton && onPressEndButton();
+            }}
+          >
+            <Text style={textInButton}>
+              {pageId === children.length - 1 ? 'Start using Grove' : 'Next'}
+            </Text>
+          </RoundButton>
+        </View>
+      </View>
+    );
+  }
 
   renderSpread() {
     return this.props.children.map((item, i) => {
@@ -46,50 +88,20 @@ class SlideView extends React.Component<Props, State> {
 
   handleOnpressButton() {
     const pageId = this.state.pageId + 1;
-    this.scrollTo(pageId % 4);
-  }
-
-  render() {
-    const { onPressEndedButton } = this.props;
-    return (
-      <View style={{ flex: 1 }}>
-        <ScrollView
-          ref={scroll => {
-            this.scroll = scroll;
-          }}
-          horizontal={true}
-          pagingEnabled={true}
-          style={this.props.style}
-          showsHorizontalScrollIndicator={false}
-          onScroll={e => this.handleOnScroll(e)}
-        >
-          {this.props.children}
-        </ScrollView>
-        <View
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            height: 100,
-            justifyContent: 'center',
-            marginTop: 40
-          }}
-        >
-          <SpreadBar>{this.renderSpread()}</SpreadBar>
-          <RoundButton
-            onPress={() => {
-              this.state.pageId < 3
-                ? this.handleOnpressButton()
-                : onPressEndedButton && onPressEndedButton();
-            }}
-          >
-            <Text style={{ color: 'white' }}>
-              {this.state.pageId === 3 ? 'Start using Grove' : 'Next'}
-            </Text>
-          </RoundButton>
-        </View>
-      </View>
-    );
+    this.scrollTo(pageId % this.props.children.length); // Avoid case that users scroll more at the end
   }
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  footerContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    height: 100,
+    justifyContent: 'center',
+    marginTop: 40
+  },
+  textInButton: { color: 'white' }
+});
 
 export default SlideView;

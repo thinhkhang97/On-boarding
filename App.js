@@ -8,10 +8,11 @@
 
 import React, { Component } from 'react';
 import Onboarding from 'features/Onboarding';
+import { DATA_SAMPLE } from 'asset/dataSample';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
-    return <Onboarding />;
+    return <Onboarding userData={DATA_SAMPLE} />;
   }
 }

@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'onboarding' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for onboarding
+
+  target 'onboarding-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'onboardingTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'onboarding-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for onboarding-tvOS
+
+  target 'onboarding-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+pod 'RNSVG', :path => '../node_modules/react-native-svg'

@@ -3,19 +3,23 @@ import { View, StyleSheet } from 'react-native';
 import Avatar from 'sharedComponents/Avatar';
 
 type Props = {
-  source: string
+  source: string,
+  borderColor?: string
 };
 const DEFAULT_SIZE = 254;
 class AvatarView extends React.Component<Props> {
+  static defaultProps = {
+    borderColor: '#f5f8fc'
+  };
   render() {
-    const { source } = this.props;
+    const { source, borderColor } = this.props;
     return (
       <View
         style={{
           width: DEFAULT_SIZE,
           height: DEFAULT_SIZE,
           borderRadius: DEFAULT_SIZE / 2,
-          borderColor: '#f5f8fc',
+          borderColor: borderColor,
           borderWidth: 54,
           overflow: 'hidden',
           padding: 15,

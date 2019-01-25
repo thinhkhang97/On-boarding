@@ -7,7 +7,8 @@ type Props = {
   source: string,
   style?: object,
   avatar?: boolean,
-  imageStyle?: object
+  imageStyle?: object,
+  avatarBorderColor?: string
 };
 
 const screenWidth = Dimensions.get('window').width;
@@ -20,7 +21,7 @@ class ImageContent extends React.Component<Props> {
   };
 
   render() {
-    const { source, avatar, style, imageStyle } = this.props;
+    const { source, avatar, style, imageStyle, avatarBorderColor } = this.props;
     return (
       <View
         style={[
@@ -33,7 +34,7 @@ class ImageContent extends React.Component<Props> {
         ]}
       >
         {avatar ? (
-          <AvatarView source={source} />
+          <AvatarView borderColor={avatarBorderColor} source={source} />
         ) : (
           <Image
             style={[

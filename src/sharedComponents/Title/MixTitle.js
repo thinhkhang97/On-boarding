@@ -4,18 +4,18 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 
 type Props = {
-  numberStyle?: object,
+  subTitleStyle?: object,
   titleStyle?: object,
   number: string
 };
 
 class MixTitle extends React.Component<Props> {
   static defaultProps = {
-    numberStyle: {},
+    subTitleStyle: {},
     titleStyle: {}
   };
   render() {
-    const { title, subTitle, numberStyle, titleStyle } = this.props;
+    const { title, subTitle, subTitleStyle, titleStyle } = this.props;
     return (
       <View
         style={{
@@ -32,12 +32,12 @@ class MixTitle extends React.Component<Props> {
               fontWeight: 'bold',
               color: 'black'
             },
-            numberStyle
+            titleStyle
           ]}
         >
           {title}
         </Text>
-        <Text style={[{ fontSize: 20, color: 'black' }, titleStyle]}>
+        <Text style={[{ fontSize: 20, color: 'black' }, subTitleStyle]}>
           {subTitle}
         </Text>
       </View>

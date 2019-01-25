@@ -11,10 +11,9 @@ class SlideItem extends React.Component<Props> {
     style: {}
   };
   render() {
+    const { style } = this.props;
     return (
-      <View style={[styles.itemContainer, this.props.style]}>
-        {this.props.children}
-      </View>
+      <View style={[styles.itemContainer, style]}>{this.props.children}</View>
     );
   }
 }

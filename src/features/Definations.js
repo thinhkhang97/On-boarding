@@ -2,12 +2,12 @@ export const WORDS = {
   WELCOME: 'Welcome',
   HOUR: 'Hr',
   HOURS: 'Hrs',
-  PROJECT: 'Projects',
-  PROJECTS: 'Project',
+  PROJECT: 'Project',
+  PROJECTS: 'Projects',
   CONNECTION: 'Connection',
   CONNECTIONS: 'Connections',
-  PROMOTION: 'Promotion',
-  PROMOTIONS: 'Promotions',
+  PROMOTION: 'promotion',
+  PROMOTIONS: 'promotions',
   ONE: 'One',
   MULTIPLE: 'Multiple'
 };

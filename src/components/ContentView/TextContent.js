@@ -8,7 +8,10 @@ type Props = {
   mix?: boolean,
   title?: string,
   description?: string,
-  mixData?: mixed
+  mixData?: mixed,
+  mixTitleStyle?: object,
+  mixSubTitleStyle?: object,
+  titleStyle?: object
 };
 
 class TextContent extends React.Component<Props> {
@@ -24,7 +27,15 @@ class TextContent extends React.Component<Props> {
     description: ''
   };
   render() {
-    const { mix, title, description, mixData } = this.props;
+    const {
+      mix,
+      title,
+      description,
+      mixData,
+      mixTitleStyle,
+      mixSubTitleStyle,
+      titleStyle
+    } = this.props;
     return (
       <View style={styles.container}>
         {mix ? (
@@ -32,14 +43,18 @@ class TextContent extends React.Component<Props> {
             <MixTitle
               title={mixData.leftTitle}
               subTitle={mixData.leftSubTitle}
+              titleStyle={mixTitleStyle}
+              subTitleStyle={mixSubTitleStyle}
             />
             <MixTitle
               title={mixData.rightTitle}
               subTitle={mixData.rightSubTitle}
+              titleStyle={mixTitleStyle}
+              subTitleStyle={mixSubTitleStyle}
             />
           </View>
         ) : (
-          <Title style={{ textAlign: 'center' }}>{title}</Title>
+          <Title style={[titleStyle, { textAlign: 'center' }]}>{title}</Title>
         )}
 
         <Description style={styles.descriptionContainer}>

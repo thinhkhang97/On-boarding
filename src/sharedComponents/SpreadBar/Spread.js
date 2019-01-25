@@ -42,7 +42,7 @@ class Spread extends React.Component<Props> {
             marginTop: 8,
             marginBottom: 8
           },
-          this.props.style
+          style
         ]}
         onPress={() => onPress && onPress(id)}
       >

@@ -12,7 +12,11 @@ export const DATA_SAMPLE = {
   numberConnections: 90,
   socialDescription:
     'Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque sem.',
-  numberPromotions: 2,
+  numberPromotions: 4,
   promotionDescription:
     'You’ve  been promoted 3 times. Keep climbing, aim for the summit'
+};
+
+export const THEME = {
+  mainColor: 'green'
 };

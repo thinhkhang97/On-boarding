@@ -12,12 +12,12 @@ class RoundButton extends React.Component<Props> {
     style: {}
   };
   render() {
-    const { onPress } = this.props;
+    const { onPress, style } = this.props;
     return (
       <Button
         style={[
           styles.container,
-          this.props.style,
+          style,
           {
             height: 44,
             borderRadius: 22,

@@ -6,7 +6,12 @@ import RoundButton from '../Button/RoundButton';
 
 type Props = {
   onPressEndButton: () => mixed,
-  children: Array // Children should be SlideItem components
+  children: Array, // Children should be SlideItem components,
+  spreadStyle?: object,
+  buttonStyle?: object,
+  buttonContent?: object,
+  customButtonContent?: mixed,
+  customEndButtonContent?: mixed
 };
 
 type State = {
@@ -17,14 +22,30 @@ type State = {
 const screenWidth = Dimensions.get('window').width;
 
 class SlideView extends React.Component<Props, State> {
+  static defaultProps = {
+    spreadStyle: {},
+    buttonStyle: {},
+    customButtonContent: <Text style={{ color: 'white' }}>Next</Text>,
+    customEndButtonContent: (
+      <Text style={{ color: 'white' }}>Start using Grove</Text>
+    )
+  };
+
   state = {
     pageId: 0,
     buttonText: 'Next'
   };
 
   render() {
-    const { onPressEndButton, children, style } = this.props;
-    const { container, footerContainer, textInButton } = styles;
+    const {
+      onPressEndButton,
+      children,
+      style,
+      buttonStyle,
+      customButtonContent,
+      customEndButtonContent
+    } = this.props;
+    const { container, footerContainer } = styles;
     const { pageId, buttonText } = this.state;
     return (
       <View style={container}>
@@ -49,10 +70,11 @@ class SlideView extends React.Component<Props, State> {
                 ? this.handleOnpressButton()
                 : onPressEndButton && onPressEndButton();
             }}
+            style={buttonStyle}
           >
-            <Text style={textInButton}>
-              {pageId === children.length - 1 ? 'Start using Grove' : 'Next'}
-            </Text>
+            {pageId === children.length - 1
+              ? customEndButtonContent
+              : customButtonContent}
           </RoundButton>
         </View>
       </View>
@@ -67,6 +89,9 @@ class SlideView extends React.Component<Props, State> {
           id={i}
           actived={this.state.pageId == i}
           onPress={id => this.handleOnPressSpread(id)}
+          style={this.props.spreadStyle}
+          activedColor={this.props.activedColor}
+          unactivedColor={this.props.unactivedColor}
         />
       );
     });

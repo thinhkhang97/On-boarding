@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render avatar view correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderColor": "#f5f8fc",
+      "borderRadius": 127,
+      "borderWidth": 54,
+      "height": 254,
+      "marginBottom": 48,
+      "overflow": "hidden",
+      "padding": 15,
+      "width": 254,
+    }
+  }
+>
+  <Image
+    style={
+      Array [
+        Object {
+          "borderRadius": 58,
+          "height": 116,
+          "width": 116,
+        },
+        Object {
+          "flex": 1,
+          "width": "100%",
+        },
+      ]
+    }
+  />
+</View>
+`;

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render avatar view correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "black",
+          "fontSize": 32,
+          "fontWeight": "bold",
+        },
+        Array [
+          undefined,
+          Object {
+            "textAlign": "center",
+          },
+        ],
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#7f8da2",
+          "fontSize": 16,
+        },
+        Object {
+          "paddingLeft": 39,
+          "paddingRight": 36,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

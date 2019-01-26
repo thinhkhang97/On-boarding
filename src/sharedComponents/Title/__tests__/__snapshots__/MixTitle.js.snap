@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render mix title correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "marginLeft": 15,
+      "marginRight": 15,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "black",
+          "fontSize": 32,
+          "fontWeight": "bold",
+        },
+        Object {},
+      ]
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "black",
+          "fontSize": 20,
+        },
+        Object {},
+      ]
+    }
+  />
+</View>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render round button correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#1154ff",
+      "borderRadius": 22,
+      "display": "flex",
+      "height": 44,
+      "justifyContent": "center",
+      "marginBottom": 8,
+      "marginTop": 8,
+      "opacity": 1,
+      "paddingLeft": 10,
+      "paddingRight": 10,
+      "shadowColor": "#731154",
+      "shadowOffset": Object {
+        "height": 5,
+        "width": 0,
+      },
+      "shadowRadius": 9,
+    }
+  }
+/>
+`;

@@ -72,7 +72,7 @@ class SlideView extends React.Component<Props, State> {
             }}
             style={buttonStyle}
           >
-            {pageId === children.length - 1
+            {pageId === children&&children.length - 1
               ? customEndButtonContent
               : customButtonContent}
           </RoundButton>
@@ -82,7 +82,7 @@ class SlideView extends React.Component<Props, State> {
   }
 
   renderSpread() {
-    return this.props.children.map((item, i) => {
+    return this.props.children&&this.props.children.map((item, i) => {
       return (
         <Spread
           key={i}

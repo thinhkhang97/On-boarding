@@ -10,18 +10,18 @@ class SpreadBar extends React.Component<Props> {
     sizeOfSpread: 8
   };
   render() {
-    const { sizeOfSpread } = this.props;
+    const { sizeOfSpread, children } = this.props;
     return (
       <View
         style={{
           display: 'flex',
           flexDirection: 'row',
-          width: sizeOfSpread * (2 * this.props.children.length - 1),
+          width: sizeOfSpread * (2 * children&&children.length - 1),
           justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
-        {this.props.children}
+        {children}
       </View>
     );
   }

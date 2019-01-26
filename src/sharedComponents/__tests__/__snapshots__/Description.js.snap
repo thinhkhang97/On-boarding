@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render button correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#7f8da2",
+        "fontSize": 16,
+      },
+      Object {},
+    ]
+  }
+/>
+`;

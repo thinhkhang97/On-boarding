@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render avatar view correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": "100%",
+        "paddingTop": 30,
+        "width": "100%",
+      },
+      Object {},
+    ]
+  }
+>
+  <Image
+    resizeMode="contain"
+    style={
+      Array [
+        Object {
+          "height": "100%",
+          "width": "auto",
+        },
+        Object {},
+      ]
+    }
+  />
+</View>
+`;

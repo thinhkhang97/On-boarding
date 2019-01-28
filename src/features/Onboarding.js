@@ -1,13 +1,6 @@
+// @flow
 import * as React from 'react';
-import {
-  View,
-  Text,
-  Dimensions,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Alert
-} from 'react-native';
+import { View, Text, Dimensions, Image, SafeAreaView, StyleSheet, Alert } from 'react-native';
 import ContentView from 'components/ContentView/ContentView';
 import SlideView from 'sharedComponents/SlideView/SlideView';
 import SlideItem from 'sharedComponents/SlideView/SlideItem';
@@ -16,8 +9,8 @@ import TextContent from 'components/ContentView/TextContent';
 import { WORDS, IMAGES } from './Definations';
 
 type Props = {
-  userData: object,
-  theme: object
+  userData: {},
+  theme: {},
 };
 
 class Onboarding extends React.Component<Props> {
@@ -56,9 +49,7 @@ class Onboarding extends React.Component<Props> {
               <TextContent
                 titleStyle={{ color: theme.mainColor }}
                 description={`${userData.workTimeDescription}`}
-                title={`${userData.workTime} ${
-                  userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR
-                }`}
+                title={`${userData.workTime} ${userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR}`}
               />
             }
           />
@@ -71,22 +62,15 @@ class Onboarding extends React.Component<Props> {
                 mix
                 mixData={{
                   leftTitle: userData.numberProjects,
-                  leftSubTitle:
-                    userData.numberProjects > 1
-                      ? WORDS.PROJECTS
-                      : WORDS.PROJECT,
+                  leftSubTitle: userData.numberProjects > 1 ? WORDS.PROJECTS : WORDS.PROJECT,
                   rightTitle: userData.numberConnections,
                   rightSubTitle:
-                    userData.numberConnections > 1
-                      ? WORDS.CONNECTIONS
-                      : WORDS.CONNECTION
+                    userData.numberConnections > 1 ? WORDS.CONNECTIONS : WORDS.CONNECTION,
                 }}
                 mixTitleStyle={{ color: theme.mainColor }}
                 mixSubTitleStyle={{ color: theme.mainColor }}
                 description={`${userData.socialDescription}`}
-                title={`${userData.workTime} ${
-                  userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR
-                }`}
+                title={`${userData.workTime} ${userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR}`}
               />
             }
           />
@@ -98,12 +82,8 @@ class Onboarding extends React.Component<Props> {
               <TextContent
                 titleStyle={{ color: theme.mainColor }}
                 description={`${userData.promotionDescription}`}
-                title={`${
-                  userData.numberPromotions > 1 ? WORDS.MULTIPLE : WORDS.ONE
-                } ${
-                  userData.numberConnections > 1
-                    ? WORDS.PROMOTIONS
-                    : WORDS.PROMOTION
+                title={`${userData.numberPromotions > 1 ? WORDS.MULTIPLE : WORDS.ONE} ${
+                  userData.numberConnections > 1 ? WORDS.PROMOTIONS : WORDS.PROMOTION
                 }`}
               />
             }
@@ -124,8 +104,8 @@ class Onboarding extends React.Component<Props> {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default Onboarding;

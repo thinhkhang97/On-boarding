@@ -1,10 +1,13 @@
+// @flow
 // Still get a trouble with shadow
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Button from './Button';
 
 type Props = {
-  style?: object
+  style?: View.propTypes.style,
+  onPress: ()=>mixed,
+  children: React.Node
 };
 
 class RoundButton extends React.Component<Props> {
@@ -12,7 +15,7 @@ class RoundButton extends React.Component<Props> {
     style: {}
   };
   render() {
-    const { onPress, style } = this.props;
+    const { onPress, style, children } = this.props;
     return (
       <Button
         style={[
@@ -27,7 +30,7 @@ class RoundButton extends React.Component<Props> {
         ]}
         onPress={() => onPress && onPress()}
       >
-        {this.props.children}
+        {children}
       </Button>
     );
   }

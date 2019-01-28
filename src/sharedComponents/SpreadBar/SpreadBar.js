@@ -1,19 +1,20 @@
+// @flow
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 type Props = {
-  size?: number
+  sizeOfSpread?: number,
+  children?: React.Node,
 };
 
 class SpreadBar extends React.Component<Props> {
   static defaultProps = {
-    sizeOfSpread: 8
+    sizeOfSpread: 8,
   };
   render() {
     const { sizeOfSpread, children } = this.props;
     let width = 200;
-    if(children)
-      width = sizeOfSpread*(2*children.length-1);
+    if (children) width = sizeOfSpread * (2 * children.length - 1);
     return (
       <View
         style={{
@@ -21,7 +22,7 @@ class SpreadBar extends React.Component<Props> {
           flexDirection: 'row',
           width: width,
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         {children}

@@ -1,26 +1,21 @@
 /// Trouble with font family.
-
+// @flow
 import * as React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 type Props = {
-  style?: object
+  style?: View.propTypes.style,
+  children?: React.Node,
 };
 
 class Title extends React.Component<Props> {
   static defaultProps = {
-    style: {}
+    style: {},
   };
   render() {
+    const { style, children } = this.props;
     return (
-      <Text
-        style={[
-          { fontSize: 32, fontWeight: 'bold', color: 'black' },
-          this.props.style
-        ]}
-      >
-        {this.props.children}
-      </Text>
+      <Text style={[{ fontSize: 32, fontWeight: 'bold', color: 'black' }, style]}>{children}</Text>
     );
   }
 }

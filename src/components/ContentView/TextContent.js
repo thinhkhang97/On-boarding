@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Title from 'sharedComponents/Title/Title';
@@ -8,10 +9,15 @@ type Props = {
   mix?: boolean,
   title?: string,
   description?: string,
-  mixData?: mixed,
-  mixTitleStyle?: object,
-  mixSubTitleStyle?: object,
-  titleStyle?: object
+  mixData?: {
+    leftTitle: string,
+    leftSubTitle: string,
+    rightTitle: string,
+    rightSubTitle: string,
+  },
+  mixTitleStyle?: View.propTypes.style,
+  mixSubTitleStyle?: View.propTypes.style,
+  titleStyle?: View.propTypes.style,
 };
 
 class TextContent extends React.Component<Props> {
@@ -21,10 +27,10 @@ class TextContent extends React.Component<Props> {
       leftTitle: '',
       leftSubTitle: '',
       rightTitle: '',
-      rightSubTitle: ''
+      rightSubTitle: '',
     },
     title: '',
-    description: ''
+    description: '',
   };
   render() {
     const {
@@ -34,7 +40,7 @@ class TextContent extends React.Component<Props> {
       mixData,
       mixTitleStyle,
       mixSubTitleStyle,
-      titleStyle
+      titleStyle,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -57,9 +63,7 @@ class TextContent extends React.Component<Props> {
           <Title style={[titleStyle, { textAlign: 'center' }]}>{title}</Title>
         )}
 
-        <Description style={styles.descriptionContainer}>
-          {description}
-        </Description>
+        <Description style={styles.descriptionContainer}>{description}</Description>
       </View>
     );
   }
@@ -70,13 +74,13 @@ const styles = StyleSheet.create({
   titleContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   descriptionContainer: {
     textAlign: 'center',
     paddingLeft: 39,
-    paddingRight: 36
-  }
+    paddingRight: 36,
+  },
 });
 
 export default TextContent;

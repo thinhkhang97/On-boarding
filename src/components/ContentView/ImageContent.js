@@ -1,3 +1,4 @@
+// @flow
 // Still have bug with android devices
 import * as React from 'react';
 import { View, StyleSheet, Image, Dimensions } from 'react-native';
@@ -5,10 +6,10 @@ import AvatarView from './AvatarView';
 
 type Props = {
   source: string,
-  style?: object,
+  style?: View.propTypes.style,
   avatar?: boolean,
-  imageStyle?: object,
-  avatarBorderColor?: string
+  imageStyle?: View.propTypes.style,
+  avatarBorderColor?: string,
 };
 
 const screenWidth = Dimensions.get('window').width;
@@ -17,7 +18,7 @@ class ImageContent extends React.Component<Props> {
   static defaultProps = {
     avatar: false,
     style: {},
-    imageStyle: {}
+    imageStyle: {},
   };
 
   render() {
@@ -28,9 +29,9 @@ class ImageContent extends React.Component<Props> {
           !avatar && {
             width: '100%',
             height: '100%',
-            paddingTop: 30
+            paddingTop: 30,
           },
-          style
+          style,
         ]}
       >
         {avatar ? (
@@ -40,9 +41,9 @@ class ImageContent extends React.Component<Props> {
             style={[
               {
                 width: 'auto',
-                height: '100%'
+                height: '100%',
               },
-              imageStyle
+              imageStyle,
             ]}
             source={source}
             resizeMode="contain"

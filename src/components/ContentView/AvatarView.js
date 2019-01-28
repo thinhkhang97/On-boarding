@@ -1,15 +1,16 @@
+// @flow
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Avatar from 'sharedComponents/Avatar';
 
 type Props = {
   source: string,
-  borderColor?: string
+  borderColor?: string,
 };
 const DEFAULT_SIZE = 254;
 class AvatarView extends React.Component<Props> {
   static defaultProps = {
-    borderColor: '#f5f8fc'
+    borderColor: '#f5f8fc',
   };
   render() {
     const { source, borderColor } = this.props;
@@ -24,7 +25,7 @@ class AvatarView extends React.Component<Props> {
           overflow: 'hidden',
           padding: 15,
           backgroundColor: 'white',
-          marginBottom: 48
+          marginBottom: 48,
         }}
       >
         <Avatar source={source} style={{ flex: 1, width: '100%' }} />

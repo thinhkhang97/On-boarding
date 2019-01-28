@@ -1,13 +1,14 @@
+// @flow
 import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 type Props = {
   actived?: boolean,
   size?: number,
-  style?: object,
+  style?: View.propTypes.style,
   activedColor: string,
   unactivedColor: string,
-  id: string
+  id: string,
 };
 
 const ACTIVE_COLOR = '#314057';
@@ -19,18 +20,10 @@ class Spread extends React.Component<Props> {
     activedColor: ACTIVE_COLOR,
     unactivedColor: UNACTIVE_COLOR,
     size: 8,
-    style: {}
+    style: {},
   };
   render() {
-    const {
-      actived,
-      size,
-      style,
-      activedColor,
-      unactivedColor,
-      onPress,
-      id
-    } = this.props;
+    const { actived, size, style, activedColor, unactivedColor, onPress, id } = this.props;
     return (
       <TouchableOpacity
         style={[
@@ -40,9 +33,9 @@ class Spread extends React.Component<Props> {
             width: size,
             borderRadius: size / 2,
             marginTop: 8,
-            marginBottom: 8
+            marginBottom: 8,
           },
-          style
+          style,
         ]}
         onPress={() => onPress && onPress(id)}
       >

@@ -1,23 +1,22 @@
+// @flow
 import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 type Props = {
-  style: object,
-  onPress: () => mixed
+  style?: View.propTypes.style,
+  onPress: () => mixed,
+  children: React.Node,
 };
 
 class Button extends React.Component<Props> {
   static defaultProps = {
-    style: {}
+    style: {},
   };
   render() {
-    const { onPress } = this.props;
+    const { onPress, style, children } = this.props;
     return (
-      <TouchableOpacity
-        style={this.props.style}
-        onPress={() => onPress && onPress()}
-      >
-        {this.props.children}
+      <TouchableOpacity style={style} onPress={() => onPress && onPress()}>
+        {children}
       </TouchableOpacity>
     );
   }

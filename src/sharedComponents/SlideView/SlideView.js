@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { View, Text, ScrollView, Dimensions, StyleSheet } from 'react-native';
 import SpreadBar from '../SpreadBar/SpreadBar';
@@ -6,17 +7,16 @@ import RoundButton from '../Button/RoundButton';
 
 type Props = {
   onPressEndButton: () => mixed,
-  children: Array, // Children should be SlideItem components,
-  spreadStyle?: object,
-  buttonStyle?: object,
-  buttonContent?: object,
-  customButtonContent?: mixed,
-  customEndButtonContent?: mixed
+  children: React.Node, // Children should be SlideItem components,
+  spreadStyle?: View.propTypes.style,
+  buttonStyle?: View.propTypes.style,
+  customButtonContent?: React.Node,
+  customEndButtonContent?: React.Node,
 };
 
 type State = {
   pageId: number,
-  buttonText: string
+  buttonText: string,
 };
 
 const screenWidth = Dimensions.get('window').width;
@@ -26,14 +26,12 @@ class SlideView extends React.Component<Props, State> {
     spreadStyle: {},
     buttonStyle: {},
     customButtonContent: <Text style={{ color: 'white' }}>Next</Text>,
-    customEndButtonContent: (
-      <Text style={{ color: 'white' }}>Start using Grove</Text>
-    )
+    customEndButtonContent: <Text style={{ color: 'white' }}>Start using Grove</Text>,
   };
 
   state = {
     pageId: 0,
-    buttonText: 'Next'
+    buttonText: 'Next',
   };
 
   render() {
@@ -43,7 +41,7 @@ class SlideView extends React.Component<Props, State> {
       style,
       buttonStyle,
       customButtonContent,
-      customEndButtonContent
+      customEndButtonContent,
     } = this.props;
     const { container, footerContainer } = styles;
     const { pageId, buttonText } = this.state;
@@ -72,9 +70,7 @@ class SlideView extends React.Component<Props, State> {
             }}
             style={buttonStyle}
           >
-            {pageId === children&&children.length - 1
-              ? customEndButtonContent
-              : customButtonContent}
+            {pageId === children.length - 1 ? customEndButtonContent : customButtonContent}
           </RoundButton>
         </View>
       </View>
@@ -82,19 +78,22 @@ class SlideView extends React.Component<Props, State> {
   }
 
   renderSpread() {
-    return this.props.children&&this.props.children.map((item, i) => {
-      return (
-        <Spread
-          key={i}
-          id={i}
-          actived={this.state.pageId == i}
-          onPress={id => this.handleOnPressSpread(id)}
-          style={this.props.spreadStyle}
-          activedColor={this.props.activedColor}
-          unactivedColor={this.props.unactivedColor}
-        />
-      );
-    });
+    return (
+      this.props.children &&
+      this.props.children.map((item, i) => {
+        return (
+          <Spread
+            key={i}
+            id={i}
+            actived={this.state.pageId == i}
+            onPress={id => this.handleOnPressSpread(id)}
+            style={this.props.spreadStyle}
+            activedColor={this.props.activedColor}
+            unactivedColor={this.props.unactivedColor}
+          />
+        );
+      })
+    );
   }
 
   scrollTo(id) {
@@ -124,9 +123,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
     justifyContent: 'center',
-    marginTop: 40
+    marginTop: 40,
   },
-  textInButton: { color: 'white' }
+  textInButton: { color: 'white' },
 });
 
 export default SlideView;

@@ -1,16 +1,17 @@
+// @flow
 import * as React from 'react';
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet } from 'react-native';
 
 type Props = {
   source: string,
-  style?: object,
-  size?: number
+  style?: View.propTypes.style,
+  size?: number,
 };
 
 class Avatar extends React.Component<Props> {
   static defaultProps = {
     size: 116,
-    style: {}
+    style: {},
   };
   render() {
     const { size, source, style } = this.props;
@@ -21,9 +22,9 @@ class Avatar extends React.Component<Props> {
           {
             height: size,
             width: size,
-            borderRadius: size / 2
+            borderRadius: size / 2,
           },
-          style
+          style,
         ]}
       />
     );

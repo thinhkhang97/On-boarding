@@ -1,18 +1,19 @@
+// @flow
 /// Trouble with font family.
 
 import * as React from 'react';
 import { View, Text } from 'react-native';
 
 type Props = {
-  subTitleStyle?: object,
-  titleStyle?: object,
-  number: string
+  subTitleStyle?: View.propTypes.style,
+  titleStyle?: View.propTypes.style,
+  number: string,
 };
 
 class MixTitle extends React.Component<Props> {
   static defaultProps = {
     subTitleStyle: {},
-    titleStyle: {}
+    titleStyle: {},
   };
   render() {
     const { title, subTitle, subTitleStyle, titleStyle } = this.props;
@@ -22,7 +23,7 @@ class MixTitle extends React.Component<Props> {
           display: 'flex',
           alignItems: 'center',
           marginLeft: 15,
-          marginRight: 15
+          marginRight: 15,
         }}
       >
         <Text
@@ -30,16 +31,14 @@ class MixTitle extends React.Component<Props> {
             {
               fontSize: 32,
               fontWeight: 'bold',
-              color: 'black'
+              color: 'black',
             },
-            titleStyle
+            titleStyle,
           ]}
         >
           {title}
         </Text>
-        <Text style={[{ fontSize: 20, color: 'black' }, subTitleStyle]}>
-          {subTitle}
-        </Text>
+        <Text style={[{ fontSize: 20, color: 'black' }, subTitleStyle]}>{subTitle}</Text>
       </View>
     );
   }

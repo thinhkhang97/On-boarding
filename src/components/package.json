@@ -1,8 +1,0 @@
-{
-  "name": "components",
-  "version": "1.0.0",
-  "description": "All components are used to build onboarding component",
-  "main": "index.js",
-  "author": "khangtnguyen",
-  "license": "MIT"
-}

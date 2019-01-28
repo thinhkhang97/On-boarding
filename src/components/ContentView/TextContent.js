@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Title from 'sharedComponents/Title/Title';
-import Description from 'sharedComponents/Description';
-import MixTitle from 'sharedComponents/Title/MixTitle';
+import Title from '../Title/Title';
+import Description from '../Description/Description';
+import MixTitle from '../Title/MixTitle';
 
 type Props = {
   mix?: boolean,

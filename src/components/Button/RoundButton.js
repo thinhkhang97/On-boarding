@@ -1,5 +1,5 @@
 // @flow
-// Still get a trouble with shadow
+
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Button from './Button';

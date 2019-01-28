@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ImageContent from './ImageContent';
-import Avatar from 'sharedComponents/Avatar';
+import Avatar from '../Avatar/Avatar';
 import TextContent from './TextContent';
 
 type Props = {

@@ -1,5 +1,4 @@
 // @flow
-/// Trouble with font family.
 
 import * as React from 'react';
 import { View, Text } from 'react-native';

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Avatar from 'sharedComponents/Avatar';
+import Avatar from '../Avatar/Avatar';
 
 type Props = {
   source: string,

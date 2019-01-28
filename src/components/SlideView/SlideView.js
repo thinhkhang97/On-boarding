@@ -1,4 +1,5 @@
 // @flow
+
 import * as React from 'react';
 import { View, Text, ScrollView, Dimensions, StyleSheet } from 'react-native';
 import SpreadBar from '../SpreadBar/SpreadBar';

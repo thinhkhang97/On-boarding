@@ -1,11 +1,11 @@
 // @flow
 import * as React from 'react';
 import { View, Text, Dimensions, Image, SafeAreaView, StyleSheet, Alert } from 'react-native';
-import ContentView from 'components/ContentView/ContentView';
-import SlideView from 'sharedComponents/SlideView/SlideView';
-import SlideItem from 'sharedComponents/SlideView/SlideItem';
+import ContentView from '../components/ContentView/ContentView';
+import SlideView from '../components/SlideView/SlideView';
+import SlideItem from '../components/SlideView/SlideItem';
 import ImageContent from '../components/ContentView/ImageContent';
-import TextContent from 'components/ContentView/TextContent';
+import TextContent from '../components/ContentView/TextContent';
 import { WORDS, IMAGES } from './Definations';
 
 type Props = {

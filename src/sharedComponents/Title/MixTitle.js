@@ -8,6 +8,8 @@ type Props = {
   subTitleStyle?: View.propTypes.style,
   titleStyle?: View.propTypes.style,
   number: string,
+  title: string,
+  subTitle: string,
 };
 
 class MixTitle extends React.Component<Props> {

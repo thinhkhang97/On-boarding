@@ -9,8 +9,8 @@ import TextContent from 'components/ContentView/TextContent';
 import { WORDS, IMAGES } from './Definations';
 
 type Props = {
-  userData: {},
-  theme: {},
+  userData: Object,
+  theme: Object,
 };
 
 class Onboarding extends React.Component<Props> {

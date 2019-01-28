@@ -6,28 +6,19 @@ import Button from './Button';
 
 type Props = {
   style?: View.propTypes.style,
-  onPress: ()=>mixed,
-  children: React.Node
+  onPress: () => mixed,
+  children: React.Node,
 };
 
 class RoundButton extends React.Component<Props> {
   static defaultProps = {
-    style: {}
+    style: {},
   };
   render() {
     const { onPress, style, children } = this.props;
     return (
       <Button
-        style={[
-          styles.container,
-          style,
-          {
-            height: 44,
-            borderRadius: 22,
-            marginTop: 8,
-            marginBottom: 8
-          }
-        ]}
+        style={[styles.container, style, styles.staticProps]}
         onPress={() => onPress && onPress()}
       >
         {children}
@@ -46,8 +37,14 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 9,
     paddingLeft: 10,
-    paddingRight: 10
-  }
+    paddingRight: 10,
+  },
+  staticProps: {
+    height: 44,
+    borderRadius: 22,
+    marginTop: 8,
+    marginBottom: 8,
+  },
 });
 
 export default RoundButton;

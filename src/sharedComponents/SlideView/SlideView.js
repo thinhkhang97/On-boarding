@@ -12,6 +12,8 @@ type Props = {
   buttonStyle?: View.propTypes.style,
   customButtonContent?: React.Node,
   customEndButtonContent?: React.Node,
+  style: View.propTypes.style,
+  onPressEndButton: () => mixed,
 };
 
 type State = {
@@ -27,6 +29,7 @@ class SlideView extends React.Component<Props, State> {
     buttonStyle: {},
     customButtonContent: <Text style={{ color: 'white' }}>Next</Text>,
     customEndButtonContent: <Text style={{ color: 'white' }}>Start using Grove</Text>,
+    style: {},
   };
 
   state = {
@@ -96,16 +99,16 @@ class SlideView extends React.Component<Props, State> {
     );
   }
 
-  scrollTo(id) {
+  scrollTo(id: number) {
     const offsetX = id * screenWidth;
     this.scroll.scrollTo({ x: offsetX, y: 0, animated: true });
   }
 
-  handleOnPressSpread(id) {
+  handleOnPressSpread(id: number) {
     this.scrollTo(id);
   }
 
-  handleOnScroll(e) {
+  handleOnScroll(e: any) {
     const pageId = parseInt(e.nativeEvent.contentOffset.x / screenWidth);
     this.setState({ pageId });
   }

@@ -5,7 +5,9 @@ import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import AvatarView from './AvatarView';
 
 type Props = {
-  source: string,
+  source: {
+    uri: string,
+  },
   style?: View.propTypes.style,
   avatar?: boolean,
   imageStyle?: View.propTypes.style,

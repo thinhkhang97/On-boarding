@@ -4,20 +4,23 @@ import { View, StyleSheet } from 'react-native';
 import Title from '../Title/Title';
 import Description from '../Description/Description';
 import MixTitle from '../Title/MixTitle';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+
+type MixDataType = {
+  leftTitle: string,
+  leftSubTitle: string,
+  rightTitle: string,
+  rightSubTitle: string,
+};
 
 type Props = {
   mix?: boolean,
   title?: string,
   description?: string,
-  mixData?: {
-    leftTitle: string,
-    leftSubTitle: string,
-    rightTitle: string,
-    rightSubTitle: string,
-  },
-  mixTitleStyle?: View.propTypes.style,
-  mixSubTitleStyle?: View.propTypes.style,
-  titleStyle?: View.propTypes.style,
+  mixData: MixDataType,
+  mixTitleStyle?: Style,
+  mixSubTitleStyle?: Style,
+  titleStyle?: Style,
 };
 
 class TextContent extends React.Component<Props> {
@@ -60,7 +63,7 @@ class TextContent extends React.Component<Props> {
             />
           </View>
         ) : (
-          <Title style={[titleStyle, { textAlign: 'center' }]}>{title}</Title>
+          <Title style={[titleStyle, styles.titleText]}>{title}</Title>
         )}
 
         <Description style={styles.descriptionContainer}>{description}</Description>
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
     paddingLeft: 39,
     paddingRight: 36,
   },
+  titleText: { textAlign: 'center' },
 });
 
 export default TextContent;

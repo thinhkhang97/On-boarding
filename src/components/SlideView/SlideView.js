@@ -5,15 +5,19 @@ import { View, Text, ScrollView, Dimensions, StyleSheet } from 'react-native';
 import SpreadBar from '../SpreadBar/SpreadBar';
 import Spread from '../SpreadBar/Spread';
 import RoundButton from '../Button/RoundButton';
+import SlideItem from './SlideItem';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
   onPressEndButton: () => mixed,
-  children: React.Node, // Children should be SlideItem components,
-  spreadStyle?: View.propTypes.style,
-  buttonStyle?: View.propTypes.style,
+  children: Array<React.Element<typeof SlideItem>>, // Children should be SlideItem components,
+  spreadStyle?: Style,
+  buttonStyle?: Style,
   customButtonContent?: React.Node,
   customEndButtonContent?: React.Node,
-  style: View.propTypes.style,
+  style: Style,
+  activedColor?: string,
+  unactivedColor?: string,
   onPressEndButton: () => mixed,
 };
 
@@ -25,9 +29,9 @@ type State = {
 const screenWidth = Dimensions.get('window').width;
 
 class SlideView extends React.Component<Props, State> {
+  scroll: React.ElementRef<typeof ScrollView>;
+
   static defaultProps = {
-    spreadStyle: {},
-    buttonStyle: {},
     customButtonContent: <Text style={{ color: 'white' }}>Next</Text>,
     customEndButtonContent: <Text style={{ color: 'white' }}>Start using Grove</Text>,
     style: {},
@@ -52,8 +56,8 @@ class SlideView extends React.Component<Props, State> {
     return (
       <View style={container}>
         <ScrollView
-          ref={scroll => {
-            this.scroll = scroll;
+          ref={(scroll: React.ElementRef<typeof ScrollView>|null) => {
+            if (scroll) this.scroll = scroll;
           }}
           horizontal={true}
           pagingEnabled={true}

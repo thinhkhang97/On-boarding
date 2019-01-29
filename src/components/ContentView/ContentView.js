@@ -6,8 +6,8 @@ import Avatar from '../Avatar/Avatar';
 import TextContent from './TextContent';
 
 type Props = {
-  imageContent?: React.Node,
-  textContent?: React.Node,
+  imageContent: React.Node,
+  textContent: React.Node,
 };
 
 class ContentView extends React.Component<Props> {

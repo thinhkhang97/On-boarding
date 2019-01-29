@@ -4,8 +4,10 @@ import { View, StyleSheet } from 'react-native';
 import Avatar from '../Avatar/Avatar';
 
 type Props = {
-  source: string,
-  borderColor?: string,
+  source: {
+    uri: string,
+  },
+  borderColor: string,
 };
 const DEFAULT_SIZE = 254;
 class AvatarView extends React.Component<Props> {

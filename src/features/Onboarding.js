@@ -16,6 +16,11 @@ type Props = {
 class Onboarding extends React.Component<Props> {
   renderSlideView() {
     const { userData, theme } = this.props;
+    const internalStyles = StyleSheet.create({
+      theme: {
+        color: theme.mainColor,
+      },
+    });
     return (
       <SlideView
         onPressEndButton={() => {
@@ -30,12 +35,12 @@ class Onboarding extends React.Component<Props> {
               <ImageContent
                 avatar
                 source={{ uri: userData.avatarURL }}
-                avatarBorderColor={theme.mainColor}
+                avatarBorderColor={internalStyles.theme.color}
               />
             }
             textContent={
               <TextContent
-                titleStyle={{ color: theme.mainColor }}
+                titleStyle={internalStyles.theme}
                 description={`${userData.userDescription}`}
                 title={`${WORDS.WELCOME}, ${userData.userName}`}
               />
@@ -47,7 +52,7 @@ class Onboarding extends React.Component<Props> {
             imageContent={<ImageContent source={IMAGES.VIEW2} />}
             textContent={
               <TextContent
-                titleStyle={{ color: theme.mainColor }}
+                titleStyle={internalStyles.theme}
                 description={`${userData.workTimeDescription}`}
                 title={`${userData.workTime} ${userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR}`}
               />
@@ -67,8 +72,8 @@ class Onboarding extends React.Component<Props> {
                   rightSubTitle:
                     userData.numberConnections > 1 ? WORDS.CONNECTIONS : WORDS.CONNECTION,
                 }}
-                mixTitleStyle={{ color: theme.mainColor }}
-                mixSubTitleStyle={{ color: theme.mainColor }}
+                mixTitleStyle={internalStyles.theme}
+                mixSubTitleStyle={internalStyles.theme}
                 description={`${userData.socialDescription}`}
                 title={`${userData.workTime} ${userData.workTime > 1 ? WORDS.HOURS : WORDS.HOUR}`}
               />
@@ -80,7 +85,7 @@ class Onboarding extends React.Component<Props> {
             imageContent={<ImageContent source={IMAGES.VIEW4} />}
             textContent={
               <TextContent
-                titleStyle={{ color: theme.mainColor }}
+                titleStyle={internalStyles.theme}
                 description={`${userData.promotionDescription}`}
                 title={`${userData.numberPromotions > 1 ? WORDS.MULTIPLE : WORDS.ONE} ${
                   userData.numberConnections > 1 ? WORDS.PROMOTIONS : WORDS.PROMOTION

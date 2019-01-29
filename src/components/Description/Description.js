@@ -3,9 +3,10 @@
 
 import * as React from 'react';
 import { View, Text } from 'react-native';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
-  style?: View.propTypes.style,
+  style?: Style,
   children?: React.Node,
 };
 

@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
-  key: string,
-  style?: View.propTypes.style,
+  style?: Style,
   children?: React.Node,
 };
 const screenWidth = Dimensions.get('window').width;

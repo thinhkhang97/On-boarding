@@ -2,10 +2,11 @@
 
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
+import Spread from './Spread';
 
 type Props = {
-  sizeOfSpread?: number,
-  children?: React.Node,
+  sizeOfSpread: number,
+  children?: Array<React.Element<typeof Spread>>,
 };
 
 class SpreadBar extends React.Component<Props> {

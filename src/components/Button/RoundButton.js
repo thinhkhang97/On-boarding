@@ -3,23 +3,25 @@
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Button from './Button';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
-  style?: View.propTypes.style,
+  style?: Style,
   onPress: () => mixed,
-  children: React.Node,
+  children?: React.Node,
 };
 
 class RoundButton extends React.Component<Props> {
   static defaultProps = {
-    style: {},
+    onPress: () => {},
   };
+
   render() {
     const { onPress, style, children } = this.props;
     return (
       <Button
         style={[styles.container, style, styles.staticProps]}
-        onPress={() => onPress && onPress()}
+        onPress={() => this.props.onPress()}
       >
         {children}
       </Button>

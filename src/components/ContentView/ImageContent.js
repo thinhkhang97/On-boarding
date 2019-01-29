@@ -3,14 +3,15 @@
 import * as React from 'react';
 import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import AvatarView from './AvatarView';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
   source: {
     uri: string,
   },
-  style?: View.propTypes.style,
+  style?: Style,
   avatar?: boolean,
-  imageStyle?: View.propTypes.style,
+  imageStyle?: Style,
   avatarBorderColor?: string,
 };
 

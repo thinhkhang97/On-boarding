@@ -2,20 +2,16 @@
 
 import * as React from 'react';
 import { View, Text } from 'react-native';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
-  subTitleStyle?: View.propTypes.style,
-  titleStyle?: View.propTypes.style,
-  number: string,
+  subTitleStyle?: Style,
+  titleStyle?: Style,
   title: string,
   subTitle: string,
 };
 
 class MixTitle extends React.Component<Props> {
-  static defaultProps = {
-    subTitleStyle: {},
-    titleStyle: {},
-  };
   render() {
     const { title, subTitle, subTitleStyle, titleStyle } = this.props;
     return (

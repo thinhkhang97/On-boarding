@@ -2,11 +2,14 @@
 
 import * as React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import type { ____ViewStyleProp_Internal as Style } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 type Props = {
-  source: string,
-  style?: View.propTypes.style,
-  size?: number,
+  source: {
+    uri: string,
+  },
+  style: Style,
+  size: number,
 };
 
 class Avatar extends React.Component<Props> {
